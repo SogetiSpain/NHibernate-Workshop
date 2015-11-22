@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Sogeti.NHibernateWorkshop.DomainModel"
+                   namespace="Sogeti.NHibernateWorkshop">
+  <class name="Employee" table="EMPLOYEES">
+    <id name="Id" column="EMPLOYEE_ID" generator="hilo" />
+    <component name="Address" class="Address">
+      <property name="AddressLine1" column="ADDRESS_LINE1" length="100" not-null="true" />
+      <property name="AddressLine2" column="ADDRESS_LINE2" length="100" />
+      <property name="City" column="CITY" length="50" not-null="true" />
+      <property name="Country" column="COUNTRY" length="50" not-null="true" />
+      <property name="Postcode" column="ZIP_CODE" length="5" not-null="true" />
+    </component>
+    <property name="DateOfBirth" column="BIRTH_DATE" />
+    <property name="EmailAddress" column="EMAIL_ADDRESS" length="255" />
+    <property name="FirstName" column="FIRST_NAME" length="30" not-null="true" />
+    <property name="Gender" column="GENDER" />
+    <property name="LastName" column="LAST_NAME" length="30" />
+    <component name="Phones" class="PhoneBook">
+      <component name="HomeNumber" class="PhoneNumber">
+        <property name="Number" column="HOME_PHONE_NUMBER" length="20" />
+        <property name="Extension" column="HOME_PHONE_EXTENSION" length="5" />
+      </component>
+      <component name="MobileNumber" class="PhoneNumber">
+        <property name="Number" column="MOBILE_PHONE_NUMBER" length="20" not-null="true" />
+        <property name="Extension" column="MOBILE_PHONE_EXTENSION" length="5" />
+      </component>
+      <component name="WorkNumber" class="PhoneNumber">
+        <property name="Number" column="WORK_PHONE_NUMBER" length="20" not-null="true" />
+        <property name="Extension" column="WORK_PHONE_EXTENSION" length="5" />
+      </component>
+    </component>
+  </class>
+</hibernate-mapping>

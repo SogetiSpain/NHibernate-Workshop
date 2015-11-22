@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Sogeti.NHibernateWorkshop.DomainModel"
+                   namespace="Sogeti.NHibernateWorkshop">
+  <class name="Customer" table="CUSTOMERS">
+    <id name="Id" column="CUSTOMER_ID" generator="guid.comb" />
+    <property name="Name" column="NAME" length="100" not-null="true" />
+    <set name="Projects" access="field.camelcase" cascade="all-delete-orphan" inverse="true" lazy="true" batch-size="25">
+      <key column="CUSTOMER_ID" />
+      <one-to-many class="Project" />
+    </set>
+  </class>
+</hibernate-mapping>

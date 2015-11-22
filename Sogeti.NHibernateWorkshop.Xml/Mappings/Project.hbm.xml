@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Sogeti.NHibernateWorkshop.DomainModel"
+                   namespace="Sogeti.NHibernateWorkshop">
+  <class name="Project" table="PROJECTS">
+    <id name="Id" column="PROJECT_ID" generator="guid" />
+    <many-to-one name="Customer" column="CUSTOMER_ID" class="Customer" not-null="true" />
+    <property name="Name" column="NAME" length="100" not-null="true" />
+    <component name="Period" class="Period">
+      <property name="StartDate" column="START_DATE" not-null="true" />
+      <property name="EndDate" column="END_DATE" />
+    </component>
+  </class>
+</hibernate-mapping>
