@@ -4,6 +4,7 @@
                    namespace="Sogeti.NHibernateWorkshop">
   <class name="Employee" table="EMPLOYEES">
     <id name="Id" column="EMPLOYEE_ID" generator="hilo" />
+    <many-to-one name="Company" column="COMPANY_ID" class="Company" not-null="true" index="IDX_EMPLOYEES_COMPANY_ID" />
     <component name="Address" class="Address">
       <property name="AddressLine1" column="ADDRESS_LINE1" length="100" not-null="true" />
       <property name="AddressLine2" column="ADDRESS_LINE2" length="100" />
@@ -30,5 +31,11 @@
         <property name="Extension" column="WORK_PHONE_EXTENSION" length="5" />
       </component>
     </component>
+    <set name="Projects" table="EMPLOYEES_PROJECTS" access="field.camelcase" cascade="all-delete-orphan" inverse="true">
+      <key foreign-key="FK_EMPLOYEES_PROJECTS_01">
+        <column name="EMPLOYEE_ID" index="IDX_EMPPRO_EMPLOYEE_ID" />
+      </key>
+      <many-to-many column="PROJECT_ID" class="Project" />
+    </set>
   </class>
 </hibernate-mapping>

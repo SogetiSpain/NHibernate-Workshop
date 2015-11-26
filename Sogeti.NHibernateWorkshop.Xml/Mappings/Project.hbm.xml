@@ -10,5 +10,11 @@
       <property name="StartDate" column="START_DATE" not-null="true" />
       <property name="EndDate" column="END_DATE" />
     </component>
+    <set name="Employees" table="EMPLOYEES_PROJECTS" access="field.camelcase" cascade="all-delete-orphan">
+      <key foreign-key="FK_EMPLOYEES_PROJECTS_02">
+        <column name="PROJECT_ID" index="IDX_EMPPRO_PROJECT_ID" />
+      </key>
+      <many-to-many column="EMPLOYEE_ID" class="Employee" />
+    </set>
   </class>
 </hibernate-mapping>

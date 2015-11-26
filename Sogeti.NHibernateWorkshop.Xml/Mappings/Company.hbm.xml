@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Sogeti.NHibernateWorkshop.DomainModel"
+                   namespace="Sogeti.NHibernateWorkshop">
+  <class name="Company" table="COMPANIES">
+    <id name="Id" column="COMPANY_ID" generator="guid.comb" />
+    <property name="Name" column="NAME" length="50" not-null="true" />
+    <set name="Employees" access="field.camelcase" cascade="all-delete-orphan" inverse="true" lazy="true" batch-size="25">
+      <key column="COMPANY_ID" foreign-key="FK_EMPLOYEES_COMPANIES" />
+      <one-to-many class="Employee" />
+    </set>
+  </class>
+</hibernate-mapping>

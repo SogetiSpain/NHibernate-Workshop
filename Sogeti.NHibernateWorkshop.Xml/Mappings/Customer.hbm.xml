@@ -6,7 +6,7 @@
     <id name="Id" column="CUSTOMER_ID" generator="guid.comb" />
     <property name="Name" column="NAME" length="100" not-null="true" />
     <set name="Projects" access="field.camelcase" cascade="all-delete-orphan" inverse="true" lazy="true" batch-size="25">
-      <key column="CUSTOMER_ID" />
+      <key column="CUSTOMER_ID" foreign-key="FK_PROJECTS_CUSTOMERS" />
       <one-to-many class="Project" />
     </set>
   </class>

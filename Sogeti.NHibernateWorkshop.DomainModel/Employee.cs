@@ -7,6 +7,7 @@
 namespace Sogeti.NHibernateWorkshop
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
@@ -14,6 +15,26 @@ namespace Sogeti.NHibernateWorkshop
     /// </summary>
     public class Employee : BaseEntity<Employee, int>
     {
+        #region Fields
+
+        /// <summary>
+        /// Defines the projects that the employee is assigned or has been assigned.
+        /// </summary>
+        private readonly ICollection<Project> projects = new HashSet<Project>();
+
+        #endregion Fields
+
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Employee"/> class.
+        /// </summary>
+        protected Employee()
+        {
+        }
+
+        #endregion Constructors
+
         #region Properties
 
         /// <summary>
@@ -27,6 +48,18 @@ namespace Sogeti.NHibernateWorkshop
         {
             get;
             set;
+        }
+
+        /// <summary>
+        /// Gets or sets the company.
+        /// </summary>
+        /// <value>
+        /// The company.
+        /// </value>
+        public virtual Company Company
+        {
+            get;
+            protected internal set;
         }
 
         /// <summary>
@@ -106,6 +139,44 @@ namespace Sogeti.NHibernateWorkshop
             set;
         }
 
+        /// <summary>
+        /// Gets the projects that the employee is assigned or has been assigned.
+        /// </summary>
+        /// <value>
+        /// The projects that the employee is assigned or has been assigned.
+        /// </value>
+        public virtual IEnumerable<Project> Projects
+        {
+            get
+            {
+                return this.projects as IEnumerable<Project>;
+            }
+        }
+
         #endregion Properties
+
+        #region Methods
+
+        /// <summary>
+        /// Creates a new employee for the specified company.
+        /// </summary>
+        /// <param name="company">The company.</param>
+        /// <returns>
+        /// The created employee.
+        /// </returns>
+        public static Employee CreateEmployee(Company company)
+        {
+            if (company == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            var employee = new Employee();
+            company.Add(employee);
+
+            return employee;
+        }
+
+        #endregion Methods
     }
 }

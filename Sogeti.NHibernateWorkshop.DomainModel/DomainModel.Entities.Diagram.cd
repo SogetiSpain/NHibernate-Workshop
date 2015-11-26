@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Sogeti.NHibernateWorkshop.BaseEntity&lt;TEntity, TId&gt;">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAgAAAAAAAAAEAAIAAAAAAQAAIAiA=</HashCode>
+      <FileName>BaseEntity.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sogeti.NHibernateWorkshop.Customer">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAABAAAAAQA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Projects" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Sogeti.NHibernateWorkshop.Employee">
+    <Position X="3.25" Y="4.25" Width="1.5" />
+    <AssociationLine Name="Projects" Type="Sogeti.NHibernateWorkshop.Project" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.75" Y="5.991" />
+        <Point X="6.812" Y="5.991" />
+        <Point X="6.812" Y="3.771" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.848" Y="0.091" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAACAAAAAAAAAAAAQAAACAAABJgAAAQg=</HashCode>
+      <FileName>Employee.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Company" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Projects" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Sogeti.NHibernateWorkshop.Project">
+    <Position X="5.75" Y="1.25" Width="1.5" />
+    <AssociationLine Name="Employees" Type="Sogeti.NHibernateWorkshop.Employee" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.312" Y="3.771" />
+        <Point X="6.312" Y="5.375" />
+        <Point X="4.75" Y="5.375" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAIAAQACAAAAAAAAAAAAAAACAI=</HashCode>
+      <FileName>Project.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Customer" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Employees" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Sogeti.NHibernateWorkshop.Company">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAIBAQACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Company.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Employees" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

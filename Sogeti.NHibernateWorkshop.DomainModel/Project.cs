@@ -7,6 +7,7 @@
 namespace Sogeti.NHibernateWorkshop
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
@@ -14,6 +15,15 @@ namespace Sogeti.NHibernateWorkshop
     /// </summary>
     public class Project : BaseEntity<Project, Guid>
     {
+        #region Fields
+
+        /// <summary>
+        /// Defines the assigned employees that the project has.
+        /// </summary>
+        private readonly ICollection<Employee> employees = new HashSet<Employee>();
+
+        #endregion Fields
+
         #region Constructors
 
         /// <summary>
@@ -37,6 +47,20 @@ namespace Sogeti.NHibernateWorkshop
         {
             get;
             protected internal set;
+        }
+
+        /// <summary>
+        /// Gets the employees that the project has.
+        /// </summary>
+        /// <value>
+        /// The employees that the project has.
+        /// </value>
+        public virtual IEnumerable<Employee> Employees
+        {
+            get
+            {
+                return this.employees as IEnumerable<Employee>;
+            }
         }
 
         /// <summary>
