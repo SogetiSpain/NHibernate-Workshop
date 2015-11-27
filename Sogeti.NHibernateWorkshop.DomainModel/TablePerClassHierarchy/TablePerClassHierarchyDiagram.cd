@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Sogeti.NHibernateWorkshop.TablePerClassHierarchy.Person">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>TablePerClassHierarchy\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sogeti.NHibernateWorkshop.TablePerClassHierarchy.Admin">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TablePerClassHierarchy\Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sogeti.NHibernateWorkshop.TablePerClassHierarchy.Instructor">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TablePerClassHierarchy\Instructor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sogeti.NHibernateWorkshop.TablePerClassHierarchy.Student">
+    <Position X="4.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TablePerClassHierarchy\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

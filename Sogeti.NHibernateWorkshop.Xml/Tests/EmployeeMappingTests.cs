@@ -15,7 +15,6 @@ namespace Sogeti.NHibernateWorkshop.Tests
     [TestFixture]
     public class EmployeeMappingTests : BaseTestForXmlMappings
     {
-        [Test]
         public void Test()
         {
             /*

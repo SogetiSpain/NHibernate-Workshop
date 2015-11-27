@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Sogeti.NHibernateWorkshop.DomainModel"
+                   namespace="Sogeti.NHibernateWorkshop.TablePerConcreteClass">
+  <class abstract="true" name="Person3" table="PERSONS_TPC">
+    <id name="Id" column="PERSON_ID" generator="guid" />
+    <property name="Name" column="NAME" length="50" not-null="true" />
+    <component name="Address" class="Address">
+      <property name="AddressLine1" column="ADDRESS_LINE1" length="100" not-null="true" />
+      <property name="AddressLine2" column="ADDRESS_LINE2" length="100" />
+      <property name="City" column="CITY" length="50" not-null="true" />
+      <property name="Country" column="COUNTRY" length="50" not-null="true" />
+      <property name="Postcode" column="ZIP_CODE" length="5" not-null="true" />
+    </component>
+
+    <union-subclass name="Admin3" table="ADMINS_TPC">
+      <property name="AdminDate" column="ADMIN_DATE" />
+    </union-subclass>
+
+    <union-subclass name="Instructor3" table="INSTRUCTORS_TPC">
+      <property name="HireDate" column="HIRE_DATE" />
+    </union-subclass>
+
+    <union-subclass name="Student3" table="STUDENTS_TPC">
+      <property name="EnrollmentDate" column="ENROLLMENT_DATE" />
+    </union-subclass>
+
+  </class>
+</hibernate-mapping>

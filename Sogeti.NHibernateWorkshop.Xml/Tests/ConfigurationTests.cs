@@ -12,15 +12,15 @@ namespace Sogeti.NHibernateWorkshop
     /// Represents the configuration tests.
     /// </summary>
     [TestFixture]
-    public class ConfigurationTests : BaseTestForFluentMappings
+    public class ConfigurationTests : BaseTestForXmlMappings
     {
         #region Methods
 
         /// <summary>
-        /// Tests the fluent NHibernate configuration.
+        /// Tests the XML mappings configuration.
         /// </summary>
         [Test]
-        public void TestFluentNHibernateConfiguration()
+        public void TestXMLMappingsConfiguration()
         {
             using (var transaction = this.Session.BeginTransaction())
             {

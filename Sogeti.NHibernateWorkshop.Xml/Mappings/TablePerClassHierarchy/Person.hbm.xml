@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Sogeti.NHibernateWorkshop.DomainModel"
+                   namespace="Sogeti.NHibernateWorkshop.TablePerClassHierarchy">
+  <class abstract="true" name="Person" table="PERSONS">
+    <id name="Id" column="PERSON_ID" generator="guid" />
+
+    <discriminator column="PERSON_TYPE" not-null="true" />
+
+    <property name="Name" column="NAME" length="50" not-null="true" />
+    <component name="Address" class="Address">
+      <property name="AddressLine1" column="ADDRESS_LINE1" length="100" not-null="true" />
+      <property name="AddressLine2" column="ADDRESS_LINE2" length="100" />
+      <property name="City" column="CITY" length="50" not-null="true" />
+      <property name="Country" column="COUNTRY" length="50" not-null="true" />
+      <property name="Postcode" column="ZIP_CODE" length="5" not-null="true" />
+    </component>
+
+    <subclass name="Admin" discriminator-value="1">
+      <property name="AdminDate" column="ADMIN_DATE" />
+    </subclass>
+
+    <subclass name="Instructor" discriminator-value="2">
+      <property name="HireDate" column="HIRE_DATE" />
+    </subclass>
+
+    <subclass name="Student" discriminator-value="3">
+      <property name="EnrollmentDate" column="ENROLLMENT_DATE" />
+    </subclass>
+
+  </class>
+</hibernate-mapping>

@@ -57,12 +57,31 @@
     <Compile Include="PhoneNumber.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TablePerClassHierarchy\Address.cs" />
+    <Compile Include="TablePerClassHierarchy\Admin.cs" />
+    <Compile Include="TablePerClassHierarchy\Instructor.cs" />
+    <Compile Include="TablePerClassHierarchy\Person.cs" />
+    <Compile Include="TablePerClassHierarchy\Student.cs" />
+    <Compile Include="TablePerConcreteClass\Address.cs" />
+    <Compile Include="TablePerConcreteClass\Admin3.cs" />
+    <Compile Include="TablePerConcreteClass\Instructor3.cs" />
+    <Compile Include="TablePerConcreteClass\Person3.cs" />
+    <Compile Include="TablePerConcreteClass\Student3.cs" />
+    <Compile Include="TablePerSubclass\Address.cs" />
+    <Compile Include="TablePerSubclass\Admin2.cs" />
+    <Compile Include="TablePerSubclass\Instructor2.cs" />
+    <Compile Include="TablePerSubclass\Person2.cs" />
+    <Compile Include="TablePerSubclass\Student2.cs" />
     <Compile Include="ValueObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DomainModel.Entities.Diagram.cd" />
     <None Include="DomainModel.ValueObjects.Diagram.cd" />
+    <None Include="TablePerClassHierarchy\TablePerClassHierarchyDiagram.cd" />
+    <None Include="TablePerConcreteClass\TablePerConcreteClassDiagram.cd" />
+    <None Include="TablePerSubclass\TablePerSubclassDiagram.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

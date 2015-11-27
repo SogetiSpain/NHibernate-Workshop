@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Sogeti.NHibernateWorkshop.DomainModel"
+                   namespace="Sogeti.NHibernateWorkshop.TablePerSubclass">
+  <class abstract="true" name="Person2" table="PERSONS_TPS">
+    <id name="Id" column="PERSON_ID" generator="guid" />
+    <property name="Name" column="NAME" length="50" not-null="true" />
+    <component name="Address" class="Address">
+      <property name="AddressLine1" column="ADDRESS_LINE1" length="100" not-null="true" />
+      <property name="AddressLine2" column="ADDRESS_LINE2" length="100" />
+      <property name="City" column="CITY" length="50" not-null="true" />
+      <property name="Country" column="COUNTRY" length="50" not-null="true" />
+      <property name="Postcode" column="ZIP_CODE" length="5" not-null="true" />
+    </component>
+
+    <joined-subclass name="Admin2" table="ADMINS_TPS">
+      <key column="ADMIN_ID" not-null="true" />
+      <property name="AdminDate" column="ADMIN_DATE" />
+    </joined-subclass>
+
+    <joined-subclass name="Instructor2" table="INSTRUCTORS_TPS">
+      <key column="INSTRUCTOR_ID" not-null="true" />
+      <property name="HireDate" column="HIRE_DATE" />
+    </joined-subclass>
+
+    <joined-subclass name="Student2" table="STUDENTS_TPS">
+      <key column="STUDENT_ID" not-null="true" />
+      <property name="EnrollmentDate" column="ENROLLMENT_DATE" />
+    </joined-subclass>
+
+  </class>
+</hibernate-mapping>
